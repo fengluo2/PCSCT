@@ -1,5 +1,8 @@
-﻿using System;
+﻿using PCSCT.BindintEntiy;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +26,39 @@ namespace PCSCT
         public MainWindow()
         {
             InitializeComponent();
+            Init();
+            //Grid1.Children.RemoveRange(1, 2);
+        }
+
+
+        private void Init()
+        {
+            ToolbarMenuSetting toolbarMenuSetting = new ToolbarMenuSetting();
+            MenuViewFileSystem.DataContext = toolbarMenuSetting;
+            MenuViewMonitor.DataContext = toolbarMenuSetting;
+            ViewFileSystem.DataContext = toolbarMenuSetting;
+            ViewMonitor.DataContext = toolbarMenuSetting;
+        }
+
+        private void ToobarMenuButtonClick(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("ToobarMenuButtonClick");
+            Debug.WriteLine(((MenuItem)sender).Name);
+            switch (((MenuItem)sender).Name)
+            {
+                case "MenuConnectOpen":
+                    break;
+                case "MenuConnectNew":
+                    break;
+                case "MenuConnectManage":
+                    break;
+                case "MenuViewFileSystem":
+                    break;
+                case "MenuViewMonitor":
+                    break;
+                case "MenuAbout":
+                    break;
+            }
         }
     }
 }
